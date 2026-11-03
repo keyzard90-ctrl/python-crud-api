@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    options {
+        // Cegah dua build berjalan bersamaan dan berebut nama container yang sama
+        disableConcurrentBuilds()
+    }
+
     environment {
         PYTHONUNBUFFERED = '1'
         REGISTRY_NAME    = 'python-crud-api'
